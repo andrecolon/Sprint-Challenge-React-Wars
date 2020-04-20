@@ -1,6 +1,6 @@
 import React from 'react';
-import Home from './Home'
 import './App.css';
+import Home from './Home'
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out

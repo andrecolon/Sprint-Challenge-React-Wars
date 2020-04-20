@@ -4,17 +4,18 @@ import Characters from './components/Character';
 import axios from 'axios'
 
 
-
+let randomNumber = Math.floor((Math.random() * 88) + 1)
+let API = 'https://swapi.py4e.com/api/people/' + randomNumber
 function Home() {
     const [dataState, setDataState] = useState('');
-
     useEffect(() => {
         const fetchSWData = () =>
-            axios.get(`https://swapi.py4e.com/api/people/1/`)
-                .then(response => {
-                    console.log(response.data);
-                    setDataState(response.data);
 
+            axios.get(API)
+                .then(response => {
+                    
+                    setDataState(response.data);
+                    console.log(response.data);
                 })
                 .catch(err => {
                     console.log(err, "this is the error")
@@ -23,25 +24,19 @@ function Home() {
         fetchSWData();
 
     }, [])
-    //console.log(date)
 
     return (
 
-        <Characters className="SW-obj">
-            <div 
+        <Characters className="SW-obj"
             
-                name={"Andre"}
-                species={dataState.species}
-                homeworld={dataState.homeworld}
-                films={dataState.films}
-            
-
-            />
-        </Characters>
-
+            person={dataState.name}
+            type={dataState.skin_color}
+            eyes={dataState.eye_color}
+            gender={dataState.gender}
+            // id={dataState.id}
+        />
+        
     )
 }
-
-
 
 export default Home

@@ -1,4 +1,5 @@
 import React from 'react';
+import Home from './Home'
 import './App.css';
 
 const App = () => {
@@ -11,6 +12,8 @@ const App = () => {
 
   return (
     <div className="App">
+      
+      <Home />
       <h1 className="Header">Characters</h1>
     </div>
   );
